@@ -1,0 +1,334 @@
+import java.util.Scanner;
+import java.util.Random;
+public class Main
+{
+	public static void main(String[] args) {
+	    int i;
+	    Scanner sc = new Scanner(System.in);
+	    //Toss
+	    System.out.println("-------------------------------\nChoose 1 for Head or 2 for Tail\n-------------------------------");
+	    int a = sc.nextInt();
+	    while(a<1 || a>2){
+	            System.out.println("Give only 1 or 2");
+	            a = sc.nextInt();
+	    }
+	        Random t = new Random();
+		int toss = 1 + t.nextInt(2);
+	    if(a==toss){
+	        System.out.println("---------------------------------------------------\nplayer 1:Enter 1 to Batting or Enter 2 to Bowling:\n---------------------------------------------------");
+	        int to = sc.nextInt();
+	        while(to<0 || to>2){
+	            System.out.println("Give only 1 or 2");
+	            to = sc.nextInt();
+	        }
+	            if(to==1){
+	            System.out.println("-------------------\nplayer1 choose to bat\n-------------------");
+	            // batting
+	            int sum1=0;
+                while(true){
+                    int x = sc.nextInt();
+                    while(x<1 || x>6){
+	                   System.out.println("Type a number greater than 0 and less than equal to 6");
+	                   x = sc.nextInt();
+	                }
+                    Random r = new Random();
+		            int ra = 1 + r.nextInt(6);
+		            System.out.println("Player 2 Bowling: "+ra);
+		            sum1+=x;
+		            if(sum1==50){
+		                System.out.println("-------------\nHalf century\n-------------");
+		            }
+		            if(sum1==100){
+		                System.out.println("-------\ncentury\n-------");
+		            }
+		            if(x==ra){
+		               sum1-=x;
+		               System.out.println("------------------------\nOut!! Batting score is:"+sum1);
+		               break;
+		            }
+		            
+       }
+       
+                    System.out.println("*******************************");
+                    System.out.println("End of first innings");
+                    System.out.println("Target for player2: "+(sum1+1));
+                    System.out.println("Start of second innings");
+                    System.out.println("*******************************");
+                    
+                    int sum2=0;
+                    while(true){
+                       int y = sc.nextInt();
+                       while(y<1|| y>6){
+                           if(y<1){
+                           System.out.println("wide");
+                           }
+                           else{
+                           System.out.println("no ball");
+                           }
+                           sum2+=1;
+                           y=sc.nextInt();
+                           
+                       }
+                       Random b = new Random();
+		               int bo = 1 + b.nextInt(6);
+		               System.out.println("player2 is batting: "+bo);
+		               sum2+=bo;
+		               if(sum2==50){
+		                System.out.println("-------------\nHalf century\n-------------");
+		            }
+		            if(sum2==100){
+		                System.out.println("-------\ncentury\n-------");
+		            }
+		               if(sum2>sum1){
+		                   System.out.println("\n--------------\nplayer2 is win\n--------------");
+		                   break;
+		               }
+		               if(bo==y){
+		                  sum2-=bo;
+		                  System.out.println("------------------------\nout!! player2 score is:"+ sum2);
+		                  if(sum1==sum2){
+		                      System.out.println("\n-----------\nMatch Drawn\n-----------");
+		                  }
+		                  else{
+		                      System.out.println("\n--------------\nplayer1 is win\n--------------");
+		                  }
+		                  break;
+		               }
+		             
+		               
+                   }
+       
+	        }
+	        else{
+	            System.out.println("----------------------\nPlayer1 choose to bowl\n----------------------");
+	                int sum2=0;
+                    while(true){
+                       int y = sc.nextInt();
+                       while(y<1|| y>6){
+                           if(y<1){
+                           System.out.println("wide");
+                           }
+                           else{
+                           System.out.println("no ball");
+                           }
+                           sum2+=1;
+                           y=sc.nextInt();
+                           
+                       }
+                       Random b = new Random();
+		               int bo = 1 + b.nextInt(6); 
+		               System.out.println("Player1 is Bowling: "+bo);
+		               sum2+=bo;
+		               if(sum2==50){
+		                System.out.println("-------------\nHalf century\n-------------");
+		            }
+		            if(sum2==100){
+		                System.out.println("-------\ncentury\n-------");
+		            }
+		               if(bo==y){
+		                  sum2-=bo;
+		                  System.out.println("------------------------\nout!! player2 score is:"+ sum2);
+		                  break;
+		               }
+		               
+                   }
+                   
+                    System.out.println("*******************************");
+                    System.out.println("End of first innings");
+                    System.out.println("Target for player1 "+(sum2+1));
+                    System.out.println("Start of second innings");
+                    System.out.println("*******************************");
+                    
+                    int sum1=0;
+                    while(true){
+                    int x = sc.nextInt();
+                    while(x<1 || x>6){
+	                   System.out.println("Type a number greater than 0 and less than equal to 6");
+	                   x=sc.nextInt();
+	                }
+                    Random r = new Random();
+		            int ra = 1 + r.nextInt(6);
+		            System.out.println("player 2 Bowling: "+ra);
+		            sum1+=x;
+		            if(sum1==50){
+		                System.out.println("-------------\nHalf century\n-------------");
+		            }
+		            if(sum1==100){
+		                System.out.println("-------\ncentury\n-------");
+		            }
+		            if(sum1>sum2){
+		                System.out.println("\n--------------\nplayer1 is win\n--------------");
+		                break;
+		            }
+		            if(x==ra){
+		               sum1-=x;
+		               System.out.println("------------------------\nout!! Batting score is"+sum1);
+		               if(sum1==sum2){
+		                   System.out.println("\n-----------\nMatch Drawn\n-----------");
+		               }
+		               else{
+		                   System.out.println("\n------------------------\nplayer2 is win\n------------------------");
+		               }
+		               break;
+		            }
+       }
+                   
+	        }
+	    }
+	    else{
+	        System.out.println("---------------------\nplayer 2 won the toss\n---------------------");
+	        Random c = new Random();
+		    int com = 1 + c.nextInt(2);
+		    if(com==1){
+		        System.out.println("---------------------\nplayer2 choose to bat\n---------------------");
+		        int sum2=0;
+                    while(true){
+                       int y = sc.nextInt();
+                       while(y<1|| y>6){
+                           if(y<1){
+                           System.out.println("wide");
+                           }
+                           else{
+                           System.out.println("no ball");
+                           }
+                           sum2+=1;
+                           y=sc.nextInt();
+                           
+                       }
+                       Random b = new Random();
+		               int bo = 1 + b.nextInt(6);
+		               System.out.println("player2 is batting: "+bo);
+		               sum2+=bo;
+		               if(sum2==50){
+		                System.out.println("-------------\nHalf century\n-------------");
+		            }
+		            if(sum2==100){
+		                System.out.println("-------\ncentury\n-------");
+		            }
+		               if(bo==y){
+		                  sum2-=bo;
+		                  System.out.println("------------------------\nout!! player2 score is:"+sum2);
+		                  break;
+		               }
+		               
+                   }
+                   
+                    System.out.println("*******************************");
+                    System.out.println("End of first innings");
+                    System.out.println("Target for player1 "+(sum2+1));
+                    System.out.println("Start of second innings");
+                    System.out.println("*******************************");
+                    
+                    int sum1=0;
+                    while(true){
+                    int x = sc.nextInt();
+                    while(x<1 || x>6){
+	                   System.out.println("Type a number greater than 0 and less than equal to 6");
+	                   x=sc.nextInt();
+	                }
+                    Random r = new Random();
+		            int ra = 1 + r.nextInt(6);
+		            System.out.println("player 2 Bowling: "+ra);
+		            sum1+=x;
+		            if(sum1==50){
+		                System.out.println("-------------\nHalf century\n-------------");
+		            }
+		            if(sum1==100){
+		                System.out.println("-------\ncentury\n-------");
+		            }
+		            if(sum1>sum2){
+		                System.out.println("\n--------------player1 is win\n--------------");
+		                break;
+		            }
+		            if(x==ra){
+		               sum1-=x;
+		               System.out.println("------------------------\nout!! Batting score is"+sum1);
+		               if(sum1==sum2){
+		                   System.out.println("\n-----------\nMatch Drawn\n-----------");
+		               }
+		               else{
+		                   System.out.println("\n--------------\nplayer2 is win\n--------------");
+		               }
+		               break;
+		            }
+		            
+       }
+                   
+	        }
+		    else{
+		        System.out.println("----------------------\nplayer2 choose to bowl\n----------------------");
+		        int sum1=0;
+		        while(true){
+                    int x = sc.nextInt();
+                    while(x<1 || x>6){
+	                   System.out.println("Type a number greater than 0 and less than equal to 6");
+	                   x=sc.nextInt();
+	                }
+                    Random r = new Random();
+		            int ra = 1 + r.nextInt(6);
+		            System.out.println("player 2 Bowling: "+ra);
+		            sum1+=x;
+		            if(sum1==50){
+		                System.out.println("-------------\nHalf century\n-------------");
+		            }
+		            if(sum1==100){
+		                System.out.println("-------\ncentury\n-------");
+		            }
+		            if(x==ra){
+		               sum1-=x;
+		               System.out.println("------------------------\nout!! Batting score is:"+sum1);
+		               break;
+		            }
+		            
+       }
+                    System.out.println("*******************************");
+                    System.out.println("End of first innings");
+                    System.out.println("Target for player2 "+(sum1+1));
+                    System.out.println("Start of second innings");
+                    System.out.println("*******************************");
+                    
+                    int sum2=0;
+                    while(true){
+                       int y = sc.nextInt();
+                       while(y<1|| y>6){
+                           if(y<1){
+                           System.out.println("wide");
+                           }
+                           else{
+                           System.out.println("no ball");
+                           }
+                           sum2+=1;
+                           y=sc.nextInt();
+                           
+                       }
+                       Random b = new Random();
+		               int bo = 1 + b.nextInt(6);
+		               System.out.println("player2 is batting: "+bo);
+		               sum2+=bo;
+		               if(sum2==50){
+		                System.out.println("-------------\nHalf century\n-------------");
+		            }
+		            if(sum2==100){
+		                System.out.println("-------\ncentury\n-------");
+		            }
+		               if(sum2>sum1){
+		                   System.out.println("\n--------------\nplayer2 is win\n--------------");
+		                   break;
+		               }
+		               if(bo==y){
+		                  sum2 -= bo;
+		                  System.out.println("------------------------\nout!! player2 score is:"+ sum2);
+		                  if(sum1==sum2){
+		                      System.out.println("\n-----------\nMatch Drawn\n-----------");
+		                  }
+		                  else{
+		                      System.out.println("\n--------------\nplayer1 is win\n--------------");
+		                  }
+		                  break;
+		               }
+		    
+                   }
+		    }
+	    }
+}
+	    } 
